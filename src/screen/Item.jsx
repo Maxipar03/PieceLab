@@ -1,10 +1,10 @@
 import { useParams } from "react-router";
-import { ItemDetailContainer} from "../components/ItemDetailContainer/ItemDetailContainer.jsx";
+import { ItemDetailContainer , Loader} from "../components"
 import { useGetProductById  } from "../hooks/useGetProductByid.jsx";
 
 export const Item = () => {
     const { id } = useParams();
 
     const { product, loading } = useGetProductById (id);
-    return <ItemDetailContainer product={product} />;
+    return loading ? <Loader/> : <ItemDetailContainer product={product} />;
 };

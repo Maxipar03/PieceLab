@@ -1,11 +1,11 @@
 import { useGetAllProducts } from "../hooks/useGetAllProducts.jsx";
 
-import ItemListContainer from "../components/ItemCard/ItemCard.jsx";
+import { ItemListContainer, Loader } from "../components/index.js";
 
-const Home = () => {
-  const { products } = useGetAllProducts();
+export const Home = () => {
+  const { products, loading } = useGetAllProducts();
 
-  return <ItemListContainer products={products} />;
+  return loading ? <Loader/> : <ItemListContainer products={products} />;
 };
 
 export default Home

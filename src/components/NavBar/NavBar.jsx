@@ -19,9 +19,9 @@ import { MoonIcon, SunIcon, ChevronDownIcon } from "@chakra-ui/icons";
 
 import { useGetAllCategories } from "../../hooks/useGetAllCategories";
 
-import CartWidget from "../CartWidget/CartWidger.jsx"
+import { CartWidget } from "../index"
 
-const NavBar = () => {
+export const NavBar = () => {
     const { colorMode, toggleColorMode } = useColorMode();
 
     const { categories } = useGetAllCategories();
@@ -96,5 +96,3 @@ const NavBar = () => {
         </>
     );
 };
-
-export default NavBar

@@ -12,5 +12,5 @@ export const useGetProductById = (id) => {
             .finally(() => setLoading(false));
     }, []);
 
-    return { product, loading };
+    return {loading , product};
 };

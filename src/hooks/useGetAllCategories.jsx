@@ -7,12 +7,8 @@ export const useGetAllCategories = () => {
 
     useEffect(() => {
         getAllCategories()
-            .then((res) => {
-                setCategories(res);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+            .then((res) => {setCategories(res)})
+            .catch((err) => {console.log(err)});
     }, []);
 
     return { categories };

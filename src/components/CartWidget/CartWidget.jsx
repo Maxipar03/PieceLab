@@ -1,7 +1,7 @@
 import { InfoOutlineIcon } from "@chakra-ui/icons";
 import { Flex } from "@chakra-ui/react";
 
-const CartWidget = () => {
+export const CartWidget = () => {
     return (
         <Flex
             alignItems={"center"}
@@ -16,5 +16,3 @@ const CartWidget = () => {
         </Flex>
     );
 };
-
-export default CartWidget;

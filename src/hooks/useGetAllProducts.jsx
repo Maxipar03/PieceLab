@@ -8,12 +8,8 @@ export const useGetAllProducts = () => {
 
     useEffect(() => {
         getAllProducts()
-            .then((res) => {
-                setProducts(res);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+            .then((res) => {setProducts(res)})
+            .catch((err) => {console.log(err)})
             .finally(() => setLoading(false));
     }, []);
 

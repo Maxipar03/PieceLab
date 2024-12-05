@@ -1,8 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Category from "../screen/Category";
-import Home from "../screen/Home"
-import NavBar from "../components/NavBar/NavBar";
-import { Item } from "../screen/Item";
+import { Item , Home, Category, NotFound } from "../screen";
+import { NavBar } from "../components";
+
 
 const PublicRouter = () => {
     return (
@@ -10,8 +9,9 @@ const PublicRouter = () => {
             <NavBar />
             <Routes>
                 <Route exact path="/" element={<Home />} />
-                <Route exact path="/category/:id" element={<Category />} />
                 <Route exact path="/item/:id" element={<Item />} />
+                <Route exact path="/category/:id" element={<Category />} />
+                <Route exact path="*" element={<NotFound />} />
             </Routes>
         </Router>
     );

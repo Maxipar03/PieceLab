@@ -6,7 +6,7 @@ import laptopBanner from '../../assets/laptop-5673901_1280.jpg';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-function Carusel() {
+export const Carusel = () => {
     const settings = {
         dots: true,
         infinite: true,
@@ -30,5 +30,3 @@ function Carusel() {
         </div>
     );
 }
-
-export default Carusel;

@@ -12,7 +12,7 @@ const useGetProductsByCategory = (id) => {
             .finally(() => setLoading(false));
     }, [id]);
 
-    return { products };
+    return { loading, products};
 };
 
 export default useGetProductsByCategory

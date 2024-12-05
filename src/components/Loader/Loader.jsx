@@ -1,5 +1,5 @@
 import { Flex, Spinner } from "@chakra-ui/react";
-const Loader = () => {
+export const Loader = () => {
   return (
     <Flex alignItems={"center"} justify={"center"} height={"90vh"}>
       <Spinner />
@@ -7,4 +7,3 @@ const Loader = () => {
   );
 };
 
-export default Loader;

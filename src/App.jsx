@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Flex , ChakraProvider } from "@chakra-ui/react";
-import Layout from './layouts/layouts.jsx';
+import Layout from './layouts/Layouts.jsx';
 import PublicRouter from './router/PublicRouter.jsx';
 
 function App() {
