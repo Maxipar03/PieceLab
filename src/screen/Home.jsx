@@ -1,11 +1,22 @@
 import { useGetAllProducts } from "../hooks/useGetAllProducts.jsx";
+import { Text } from "@chakra-ui/react";
 
-import { ItemListContainer, Loader } from "../components/index.js";
+import { Carusel, ItemListContainer, Loader } from "../components/index.js";
 
 export const Home = () => {
-  const { products, loading } = useGetAllProducts();
+  const { items, loading } = useGetAllProducts("products");
 
-  return loading ? <Loader/> : <ItemListContainer products={products} />;
-};
-
-export default Home
+  return (
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <Carusel />
+          <Text fontSize={30} fontWeight={"bold"} margin={5}>Todos Los Productos</Text>
+          <ItemListContainer products={items} />
+        </>
+      )}
+    </>
+  );
+}

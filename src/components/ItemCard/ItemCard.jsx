@@ -13,15 +13,15 @@ export const ItemCard = ({ products }) => {
         <Link to={`/item/${products.id}`}>
                 <CardBody>
                     <Image
-                        src={products.image}
-                        alt={products.name}
+                        src={products.images[0]}
+                        alt={products.title}
                         borderRadius='lg'
                         maxHeight={250}
                         width="100%"
                         objectFit="cover"
                     />
                     <Stack mt='6' spacing='3'>
-                        <Heading size='md'>{products.name}</Heading>
+                        <Heading size='md'>{products.title}</Heading>
                         <Text>{products.description}</Text>
                         <Text color='blue.600' fontSize='2xl'>
                             {products.price}

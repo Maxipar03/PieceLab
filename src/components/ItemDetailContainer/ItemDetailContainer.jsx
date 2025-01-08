@@ -16,8 +16,32 @@ import {
     List,
     ListItem,
 } from "@chakra-ui/react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../context";
 
 export const ItemDetailContainer = ({ product }) => {
+
+    const [count, setCount] = useState(0);
+    const { addItem, removeItem } = useContext(CartContext);
+
+    const handleRemoveProduct = () => {
+        if (count > 0) {
+            setCount(count - 1);
+            removeItem(product)
+        }
+    };
+
+    const handleAddProduct = () => {
+
+        console.log(product)
+
+        if(count < product.stock){
+            setCount(count + 1);
+            addItem(product);
+        }
+    };
+
+
     return (
         <Container maxW={"7xl"}>
             <SimpleGrid
@@ -29,7 +53,7 @@ export const ItemDetailContainer = ({ product }) => {
                     <Image
                         rounded={"md"}
                         alt={"product image"}
-                        src= {product.image}
+                        src={product.images[0]}
                         fit={"cover"}
                         align={"center"}
                         w={"100%"}
@@ -43,7 +67,7 @@ export const ItemDetailContainer = ({ product }) => {
                             fontWeight={600}
                             fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
                         >
-                            {product.name}
+                            {product.title}
                         </Heading>
                         <Text
                             color={useColorModeValue("gray.900", "gray.400")}
@@ -76,25 +100,39 @@ export const ItemDetailContainer = ({ product }) => {
                             >
                                 Product Details
                             </Text>
+
+                            <List spacing={2}>
+                                <ListItem>
+                                    <Text as={"span"} fontWeight={"bold"}>
+                                        Warranty:
+                                    </Text>{" "}
+                                    {product.warrantyInformation}
+                                </ListItem>
+                                <ListItem>
+                                    <Text as={"span"} fontWeight={"bold"}>
+                                        Shipping Information:
+                                    </Text>{" "}
+                                    {product.shippingInformation}
+                                </ListItem>
+                                <ListItem>
+                                    <Text as={"span"} fontWeight={"bold"}>
+                                        Return policy:
+                                    </Text>{" "}
+                                    {product.returnPolicy}
+                                </ListItem>
+                            </List>
                         </Box>
                     </Stack>
 
-                    <Button
-                        rounded={"none"}
-                        w={"full"}
-                        mt={8}
-                        size={"lg"}
-                        py={"7"}
-                        bg={useColorModeValue("gray.900", "gray.50")}
-                        color={useColorModeValue("white", "gray.900")}
-                        textTransform={"uppercase"}
-                        _hover={{
-                            transform: "translateY(2px)",
-                            boxShadow: "lg",
-                        }}
+                    <Flex
+                        alignItems={"center"}
+                        width={"200px"}
+                        justifyContent={"space-around"}
                     >
-                        Add to cart
-                    </Button>
+                        <Button onClick={handleRemoveProduct}>-</Button>
+                        <Text>{count}</Text>
+                        <Button onClick={handleAddProduct}>+</Button>
+                    </Flex>
                 </Stack>
             </SimpleGrid>
         </Container>
